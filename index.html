@@ -5,20 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Eonix Tech Studio | Digital Innovation</title>
-  <meta name="description" content="Explore digital projects, websites and technology experiments by Eonix Tech Studio.">
-  <meta name="theme-color" content="#07111f">
+  <title>Eonix Tech Studio | Future of Digital Innovation</title>
+
+  <meta name="description" content="Discover Eonix Tech Studio, an independent digital studio showcasing futuristic websites, creative portfolios, automotive concepts and educational technology projects.">
+
+  <meta name="google-site-verification" content="v5mDBIUS65HTOal5Eomv26ZHuoqDJNgRkTEBId_ix-A">
+
+  <meta name="theme-color" content="#030712">
 
   <style>
+    /* =========================
+       GLOBAL SETTINGS
+    ========================= */
+
     :root {
-      --bg: #07111f;
-      --panel: #0c1a2b;
-      --panel-light: #10243a;
-      --text: #f3f8ff;
-      --muted: #9aadc4;
-      --blue: #42a5ff;
-      --green: #42f5b3;
-      --border: rgba(147, 190, 230, .15);
+      --bg: #030712;
+      --bg2: #071426;
+      --card: rgba(10, 25, 48, .78);
+      --blue: #168cff;
+      --cyan: #00e5ff;
+      --white: #f3f8ff;
+      --muted: #92a6c3;
+      --border: rgba(56, 153, 255, .23);
     }
 
     * {
@@ -29,13 +37,25 @@
     }
 
     body {
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      background:
-        radial-gradient(ellipse at 10% 0%, #102c49 0, transparent 40%),
-        radial-gradient(ellipse at 95% 35%, #062f36 0, transparent 32%),
-        var(--bg);
-      color: var(--text);
+      background: var(--bg);
+      color: var(--white);
+      font-family: "Segoe UI", Arial, sans-serif;
       line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(0, 105, 255, .18), transparent 40%),
+        radial-gradient(ellipse at 90% 45%, rgba(0, 229, 255, .08), transparent 35%),
+        linear-gradient(rgba(0, 119, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 119, 255, .025) 1px, transparent 1px);
+      background-size: auto, auto, 45px 45px, 45px 45px;
     }
 
     a {
@@ -43,198 +63,273 @@
       text-decoration: none;
     }
 
-    button {
+    button, input {
       font: inherit;
     }
 
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     .container {
-      width: min(1120px, 90%);
+      width: min(1160px, 90%);
       margin: auto;
     }
+
+    .blue {
+      color: var(--cyan);
+    }
+
+    .gradient {
+      background: linear-gradient(100deg, #fff, #57b7ff, #00e5ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(7, 17, 31, .88);
+      background: rgba(3, 7, 18, .86);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
 
     nav {
-      min-height: 76px;
+      min-height: 78px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 20px;
     }
 
     .logo {
-      font-size: 1.2rem;
       font-weight: 900;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      font-size: 1.12rem;
+      white-space: nowrap;
     }
 
-    .logo span {
-      color: var(--green);
+    .logo-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 33px;
+      height: 33px;
+      margin-right: 8px;
+      border: 1px solid var(--cyan);
+      border-radius: 9px;
+      color: var(--cyan);
+      box-shadow: 0 0 18px rgba(0, 229, 255, .16);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 25px;
-      flex-wrap: wrap;
     }
 
     .nav-links a {
-      font-size: .9rem;
+      font-size: .88rem;
       color: var(--muted);
       transition: .25s;
     }
 
     .nav-links a:hover {
-      color: var(--green);
+      color: var(--cyan);
     }
 
-    .hero {
-      min-height: 610px;
-      display: flex;
-      align-items: center;
-      padding: 90px 0;
+    .nav-cta {
+      border: 1px solid var(--blue);
+      padding: 8px 14px;
+      border-radius: 7px;
+      color: white !important;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 7px 14px;
-      border: 1px solid rgba(66, 245, 179, .3);
-      background: rgba(66, 245, 179, .06);
-      border-radius: 100px;
-      color: var(--green);
-      font-size: .78rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .dot {
-      width: 7px;
-      height: 7px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 12px var(--green);
-    }
-
-    h1 {
-      max-width: 850px;
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      line-height: 1.08;
-      letter-spacing: -3px;
-      margin: 25px 0;
-    }
-
-    .gradient-text {
-      background: linear-gradient(90deg, var(--green), var(--blue));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      max-width: 660px;
-      color: var(--muted);
-      font-size: 1.08rem;
-      margin-bottom: 30px;
-    }
-
-    .actions {
-      display: flex;
-      gap: 13px;
-      flex-wrap: wrap;
-    }
+    /* =========================
+       BUTTONS
+    ========================= */
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 9px;
       padding: 12px 19px;
-      border-radius: 10px;
+      border-radius: 8px;
       border: 1px solid var(--border);
-      font-weight: 700;
-      font-size: .9rem;
-      transition: transform .2s, border-color .2s;
       cursor: pointer;
+      font-size: .9rem;
+      font-weight: 700;
+      transition: .25s;
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      border-color: var(--green);
+      border-color: var(--cyan);
+      box-shadow: 0 0 24px rgba(0, 145, 255, .16);
     }
 
     .btn-primary {
-      color: #04130f;
-      background: linear-gradient(100deg, var(--green), #79e5ff);
-      border: none;
+      background: linear-gradient(100deg, #087bff, #00bdf2);
+      color: white;
+      border: 0;
+      box-shadow: 0 0 25px rgba(0, 125, 255, .18);
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,.03);
+    .btn-outline {
+      background: rgba(8, 24, 44, .75);
+      color: var(--white);
     }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 100px 0 85px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      background: rgba(0, 142, 255, .08);
+      border: 1px solid rgba(0, 186, 255, .3);
+      border-radius: 50px;
+      color: #8bdcff;
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 13px var(--cyan);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7.5vw, 6.4rem);
+      line-height: 1.04;
+      letter-spacing: -3.5px;
+      margin: 28px 0;
+    }
+
+    .hero p {
+      max-width: 660px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-bottom {
+      margin-top: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .hero-bottom strong {
+      display: block;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .hero-orb {
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      right: 1%;
+      top: 20%;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 180, 255, .13);
+      box-shadow:
+        0 0 70px rgba(0, 105, 255, .09),
+        inset 0 0 60px rgba(0, 105, 255, .06);
+      pointer-events: none;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .hero-orb::before,
+    .hero-orb::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(0, 210, 255, .16);
+      border-radius: 50%;
+      inset: 30px;
+    }
+
+    .hero-orb::after {
+      inset: 65px;
+      border-color: rgba(0, 120, 255, .25);
+      box-shadow: 0 0 45px rgba(0, 140, 255, .12);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-16px) rotate(8deg); }
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
 
     section {
-      padding: 75px 0;
-      scroll-margin-top: 85px;
+      padding: 85px 0;
+      scroll-margin-top: 80px;
     }
 
-    .section-heading {
-      margin-bottom: 32px;
-    }
-
-    .section-heading .label {
-      color: var(--green);
-      text-transform: uppercase;
+    .section-label {
+      color: var(--cyan);
       font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: 2.8px;
       font-weight: 800;
-      letter-spacing: 2px;
     }
 
-    h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
+    .section-title {
+      font-size: clamp(2.1rem, 4.5vw, 3.4rem);
       line-height: 1.2;
-      margin: 8px 0 12px;
+      margin: 12px 0;
       letter-spacing: -1px;
     }
 
-    .section-heading p {
-      color: var(--muted);
-      max-width: 650px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 38px;
-    }
-
-    .stat {
-      border: 1px solid var(--border);
-      background: rgba(12, 26, 43, .7);
-      padding: 23px;
-      border-radius: 16px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.45rem;
-      color: var(--green);
-    }
-
-    .stat span {
-      font-size: .85rem;
+    .section-description {
+      max-width: 690px;
       color: var(--muted);
     }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    /* =========================
+       PROJECT SEARCH
+    ========================= */
 
     .project-toolbar {
       display: flex;
@@ -245,272 +340,382 @@
       margin-bottom: 25px;
     }
 
-    .search-box {
-      width: min(320px, 100%);
+    .project-count {
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .search {
+      width: min(330px, 100%);
       padding: 12px 15px;
-      background: var(--panel);
+      background: #081528;
+      color: white;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
+      border-radius: 9px;
       outline: none;
     }
 
-    .search-box:focus {
-      border-color: var(--green);
+    .search:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 18px rgba(0, 160, 255, .12);
     }
+
+    /* =========================
+       PROJECT CARDS
+    ========================= */
 
     .project-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
+      gap: 22px;
     }
 
     .project-card {
-      min-width: 0;
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: 18px;
-      background: linear-gradient(145deg, rgba(16,36,58,.94), rgba(8,20,34,.95));
-      transition: transform .25s, border-color .25s;
+      border-radius: 15px;
+      background: linear-gradient(145deg, rgba(12, 29, 53, .94), rgba(5, 12, 26, .98));
+      transition: .3s;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      background: linear-gradient(90deg, transparent, var(--blue), var(--cyan), transparent);
+      opacity: .8;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(66,245,179,.5);
+      transform: translateY(-6px);
+      border-color: rgba(0, 200, 255, .55);
+      box-shadow: 0 15px 45px rgba(0, 90, 255, .1);
     }
 
-    .project-visual {
-      height: 150px;
-      padding: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at 50% 120%, rgba(66,245,179,.18), transparent 65%),
-        linear-gradient(135deg, #102b46, #0b1a2c);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .project-icon {
-      width: 76px;
-      height: 76px;
+    .project-art {
+      height: 160px;
       display: grid;
       place-items: center;
-      border-radius: 22px;
-      font-size: 2rem;
+      background:
+        radial-gradient(ellipse at center, rgba(0, 116, 255, .2), transparent 65%),
+        linear-gradient(130deg, #091b34, #06101e);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 24px,
+        rgba(0, 170, 255, .045) 25px
+      );
+    }
+
+    .project-symbol {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 77px;
+      height: 77px;
+      border-radius: 18px;
+      font-size: 1.7rem;
       font-weight: 900;
-      color: var(--green);
-      border: 1px solid rgba(66,245,179,.35);
-      background: rgba(66,245,179,.07);
-      box-shadow: 0 0 35px rgba(66,245,179,.08);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 200, 255, .45);
+      background: rgba(0, 110, 255, .12);
+      box-shadow: 0 0 35px rgba(0, 140, 255, .15);
     }
 
-    .project-content {
-      padding: 24px;
+    .project-body {
+      padding: 25px;
     }
 
-    .project-type {
-      color: var(--green);
-      font-size: .72rem;
-      letter-spacing: 1.5px;
+    .project-category {
+      color: var(--cyan);
+      font-size: .7rem;
       font-weight: 800;
       text-transform: uppercase;
+      letter-spacing: 1.7px;
     }
 
-    .project-content h3 {
-      font-size: 1.35rem;
+    .project-body h3 {
+      font-size: 1.4rem;
       margin: 7px 0;
     }
 
-    .project-content p {
+    .project-body p {
       color: var(--muted);
       font-size: .91rem;
-      min-height: 60px;
-      margin-bottom: 18px;
+      min-height: 78px;
+      margin-bottom: 20px;
     }
 
-    .project-links {
+    .project-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
-    .project-links .btn {
-      padding: 9px 12px;
+    .project-actions .btn {
+      padding: 10px 13px;
       font-size: .82rem;
     }
 
-    .note {
+    .project-note {
       margin-top: 25px;
-      color: var(--muted);
-      font-size: .85rem;
-      padding: 15px 17px;
+      padding: 16px 19px;
       border-left: 3px solid var(--blue);
-      background: rgba(66,165,255,.06);
-      border-radius: 0 9px 9px 0;
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+      background: rgba(0, 120, 255, .06);
+      font-size: .86rem;
     }
+
+    /* =========================
+       SERVICES
+    ========================= */
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 17px;
+      gap: 18px;
     }
 
-    .service {
-      padding: 24px;
+    .service-card {
+      padding: 27px;
+      background: var(--card);
       border: 1px solid var(--border);
-      background: rgba(12,26,43,.7);
-      border-radius: 15px;
+      border-radius: 13px;
+      transition: .25s;
     }
 
-    .service .symbol {
-      font-size: 1.7rem;
-      margin-bottom: 10px;
+    .service-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
     }
 
-    .service h3 {
-      margin-bottom: 7px;
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--cyan);
+      font-size: 1.35rem;
+      margin-bottom: 17px;
+      background: rgba(0, 120, 255, .08);
     }
 
-    .service p {
-      color: var(--muted);
+    .service-card h3 {
+      margin-bottom: 9px;
+    }
+
+    .service-card p {
       font-size: .9rem;
+      color: var(--muted);
     }
 
-    .about-box {
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-layout {
       display: grid;
       grid-template-columns: 1.1fr .9fr;
-      gap: 30px;
+      gap: 35px;
       align-items: center;
-      padding: 35px;
-      border: 1px solid var(--border);
-      background: rgba(12,26,43,.65);
-      border-radius: 20px;
     }
 
-    .about-box p {
+    .about-text p {
       color: var(--muted);
-      margin-top: 12px;
+      margin: 15px 0;
     }
 
-    .principles {
+    .about-points {
       display: grid;
-      gap: 12px;
+      gap: 13px;
     }
 
-    .principle {
-      padding: 15px;
+    .about-point {
+      padding: 19px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.02);
-      border-radius: 10px;
+      border-radius: 11px;
+      background: rgba(10, 25, 48, .68);
     }
 
-    .principle strong {
-      color: var(--green);
+    .about-point strong {
       display: block;
+      color: #65caff;
+      margin-bottom: 4px;
     }
 
-    .registration {
-      border: 1px solid rgba(255,190,90,.3);
-      background: rgba(255,190,90,.06);
-      border-radius: 15px;
-      padding: 25px;
+    .about-point span {
+      color: var(--muted);
+      font-size: .88rem;
     }
 
-    .registration h3 {
-      color: #ffd28b;
+    /* =========================
+       BUSINESS NOTICE
+    ========================= */
+
+    .notice {
+      padding: 26px;
+      border: 1px solid rgba(255, 185, 90, .32);
+      background: rgba(255, 185, 90, .045);
+      border-radius: 13px;
+    }
+
+    .notice h3 {
+      color: #ffd18c;
       margin-bottom: 8px;
     }
 
-    .registration p {
-      color: #d2c4ac;
-      font-size: .92rem;
+    .notice p {
+      color: #c8c5c0;
+      font-size: .91rem;
     }
 
+    /* =========================
+       CONTACT
+    ========================= */
+
     .contact-box {
-      padding: 35px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      padding: 45px;
+      border: 1px solid rgba(0, 155, 255, .3);
+      border-radius: 17px;
       background:
-        radial-gradient(circle at 100% 0%, rgba(66,165,255,.12), transparent 50%),
-        var(--panel);
+        radial-gradient(ellipse at 100% 0%, rgba(0, 140, 255, .18), transparent 50%),
+        #071326;
     }
 
     .contact-box p {
+      max-width: 650px;
       color: var(--muted);
-      margin: 10px 0 22px;
+      margin: 12px 0 25px;
     }
 
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
-      padding: 30px 0;
       border-top: 1px solid var(--border);
+      padding: 30px 0;
       color: var(--muted);
-      font-size: .85rem;
+      font-size: .84rem;
     }
 
     .footer-inner {
       display: flex;
       justify-content: space-between;
-      gap: 15px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     .footer-links {
       display: flex;
-      gap: 16px;
       flex-wrap: wrap;
+      gap: 17px;
     }
 
     .footer-links a:hover {
-      color: var(--green);
+      color: var(--cyan);
     }
 
     .empty-state {
       display: none;
       color: var(--muted);
-      padding: 25px 0;
+      padding: 30px 0;
     }
 
-    @media (max-width: 720px) {
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+      .hero-orb {
+        width: 180px;
+        height: 180px;
+        top: 9%;
+        right: -70px;
+        opacity: .6;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
       nav {
+        padding: 15px 0;
         align-items: flex-start;
         flex-direction: column;
-        padding: 15px 0;
       }
 
       .nav-links {
-        gap: 15px;
+        width: 100%;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        font-size: .82rem;
       }
 
       .hero {
         min-height: auto;
-        padding: 80px 0;
+        padding: 85px 0 60px;
       }
 
       h1 {
-        letter-spacing: -1.5px;
+        letter-spacing: -1.7px;
+        font-size: clamp(2.7rem, 12vw, 4rem);
+      }
+
+      section {
+        padding: 65px 0;
       }
 
       .project-grid,
-      .services-grid,
-      .about-box {
+      .services-grid {
         grid-template-columns: 1fr;
       }
 
-      .stats {
-        grid-template-columns: 1fr;
+      .project-body p {
+        min-height: auto;
       }
 
-      .about-box,
       .contact-box {
-        padding: 23px;
+        padding: 27px 22px;
+      }
+
+      .hero-bottom {
+        gap: 18px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
+        animation: none !important;
         transition: none !important;
       }
     }
@@ -518,111 +723,137 @@
 </head>
 
 <body>
+
+  <!-- NAVIGATION -->
   <header>
     <nav class="container">
-      <a class="logo" href="#home">EONIX<span>.</span> TECH STUDIO</a>
+      <a class="logo" href="#home">
+        <span class="logo-mark">E</span>EONIX<span class="blue">.</span> TECH
+      </a>
 
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Contact ↗</a>
       </div>
     </nav>
   </header>
 
   <main>
+
+    <!-- HERO -->
     <section class="hero" id="home">
+      <div class="hero-orb"></div>
+
       <div class="container">
-        <div class="eyebrow">
-          <span class="dot"></span>
-          Independent Digital Studio
-        </div>
+        <div class="hero-content">
 
-        <h1>
-          Building ideas into<br>
-          <span class="gradient-text">digital experiences.</span>
-        </h1>
-
-        <p>
-          Welcome to Eonix Tech Studio. Explore our web projects,
-          digital concepts and technology experiments — where creativity
-          meets code.
-        </p>
-
-        <div class="actions">
-          <a class="btn btn-primary" href="#projects">Explore Our Projects ↗</a>
-          <a class="btn btn-secondary"
-             href="https://github.com/norizkandar"
-             target="_blank" rel="noopener noreferrer">
-            View GitHub Profile ↗
-          </a>
-        </div>
-
-        <div class="stats">
-          <div class="stat">
-            <strong>Web Development</strong>
-            <span>Modern digital experiences</span>
+          <div class="status">
+            <span class="status-dot"></span>
+            Independent Digital Studio
           </div>
-          <div class="stat">
-            <strong>Creative Projects</strong>
-            <span>Ideas built through technology</span>
+
+          <h1>
+            We Build<br>
+            <span class="gradient">Digital Futures.</span>
+          </h1>
+
+          <p>
+            Welcome to Eonix Tech Studio — a space for creative ideas,
+            futuristic websites and technology-driven projects.
+            Discover our work and explore what we are building.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              Explore Projects <span>↗</span>
+            </a>
+
+            <a href="https://github.com/norizkandar"
+               class="btn btn-outline"
+               target="_blank"
+               rel="noopener noreferrer">
+              GitHub Profile ↗
+            </a>
           </div>
-          <div class="stat">
-            <strong>Continuous Learning</strong>
-            <span>Improving with every project</span>
+
+          <div class="hero-bottom">
+            <div>
+              <strong>Digital</strong>
+              Creative Experiences
+            </div>
+            <div>
+              <strong>Technology</strong>
+              Learning & Innovation
+            </div>
+            <div>
+              <strong>Future-Focused</strong>
+              Ideas Into Projects
+            </div>
           </div>
+
         </div>
       </div>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects">
       <div class="container">
+
         <div class="section-heading">
-          <div class="label">Selected Work</div>
-          <h2>Explore Our Projects</h2>
-          <p>
-            Discover our projects below. Open a published website to
-            explore the experience, or visit its GitHub repository
-            to view the source code.
+          <div class="section-label">01 / Our Work</div>
+          <h2 class="section-title">
+            Explore Our <span class="gradient">Projects.</span>
+          </h2>
+          <p class="section-description">
+            Every project represents an idea, a learning journey or
+            a digital experience. Visit the published website or
+            explore its source code on GitHub.
           </p>
         </div>
 
         <div class="project-toolbar">
-          <span style="color: var(--muted); font-size: .9rem;">
-            Browse the project collection
-          </span>
+          <div class="project-count">
+            <span class="blue">●</span>
+            <span id="visibleCount">5</span> projects listed
+          </div>
 
           <input
-            class="search-box"
-            id="projectSearch"
             type="search"
+            id="projectSearch"
+            class="search"
             placeholder="Search projects..."
             aria-label="Search projects">
         </div>
 
         <div class="project-grid" id="projectGrid">
 
-          <!-- PROJECT 1 -->
-          <article class="project-card" data-search="safwan portfolio website">
-            <div class="project-visual">
-              <div class="project-icon">S</div>
+          <!-- 1. SAFWAN -->
+          <article class="project-card"
+                   data-search="safwan portfolio personal website">
+            <div class="project-art">
+              <div class="project-symbol">S.</div>
             </div>
-            <div class="project-content">
-              <div class="project-type">Portfolio Website</div>
+
+            <div class="project-body">
+              <div class="project-category">Personal Portfolio</div>
               <h3>Safwan Portfolio</h3>
               <p>
-                A personal portfolio project designed to present
-                an individual's profile, experience and digital identity.
+                A personal portfolio concept designed to present
+                professional information, personal achievements
+                and digital identity.
               </p>
-              <div class="project-links">
+
+              <div class="project-actions">
                 <a class="btn btn-primary"
                    href="https://norizkandar.github.io/safwan/"
                    target="_blank" rel="noopener noreferrer">
-                  Visit Project ↗
+                  Visit Website ↗
                 </a>
-                <a class="btn btn-secondary"
+
+                <a class="btn btn-outline"
                    href="https://github.com/norizkandar/safwan"
                    target="_blank" rel="noopener noreferrer">
                   Source Code
@@ -631,25 +862,30 @@
             </div>
           </article>
 
-          <!-- PROJECT 2 -->
-          <article class="project-card" data-search="norizkandar personal portfolio developer">
-            <div class="project-visual">
-              <div class="project-icon">N</div>
+          <!-- 2. NORIZKANDAR -->
+          <article class="project-card"
+                   data-search="norizkandar portfolio personal developer website">
+            <div class="project-art">
+              <div class="project-symbol">N.</div>
             </div>
-            <div class="project-content">
-              <div class="project-type">Personal Portfolio</div>
+
+            <div class="project-body">
+              <div class="project-category">Developer Portfolio</div>
               <h3>Norizkandar Portfolio</h3>
               <p>
-                A personal portfolio project showcasing developer
-                interests, selected work and digital creations.
+                A personal portfolio project showcasing development
+                interests, creative work and a growing collection
+                of digital projects.
               </p>
-              <div class="project-links">
+
+              <div class="project-actions">
                 <a class="btn btn-primary"
                    href="https://norizkandar.github.io/norizkandarfaizal/"
                    target="_blank" rel="noopener noreferrer">
-                  Visit Project ↗
+                  Visit Website ↗
                 </a>
-                <a class="btn btn-secondary"
+
+                <a class="btn btn-outline"
                    href="https://github.com/norizkandar/norizkandarfaizal"
                    target="_blank" rel="noopener noreferrer">
                   Source Code
@@ -658,25 +894,30 @@
             </div>
           </article>
 
-          <!-- PROJECT 3 -->
-          <article class="project-card" data-search="smart car hub automotive cars platform">
-            <div class="project-visual">
-              <div class="project-icon">SC</div>
+          <!-- 3. SMART CAR HUB -->
+          <article class="project-card"
+                   data-search="smart car hub automotive car luxury">
+            <div class="project-art">
+              <div class="project-symbol">SC</div>
             </div>
-            <div class="project-content">
-              <div class="project-type">Automotive Platform</div>
+
+            <div class="project-body">
+              <div class="project-category">Automotive Technology</div>
               <h3>Smart Car Hub</h3>
               <p>
-                An automotive platform concept with a premium visual
-                identity and an all-in-one digital experience.
+                An automotive platform concept with a premium
+                visual identity, designed around a modern
+                all-in-one car experience.
               </p>
-              <div class="project-links">
+
+              <div class="project-actions">
                 <a class="btn btn-primary"
                    href="https://norizkandar.github.io/smart-car-hub/"
                    target="_blank" rel="noopener noreferrer">
-                  Visit Project ↗
+                  Visit Website ↗
                 </a>
-                <a class="btn btn-secondary"
+
+                <a class="btn btn-outline"
                    href="https://github.com/norizkandar/smart-car-hub"
                    target="_blank" rel="noopener noreferrer">
                   Source Code
@@ -685,25 +926,30 @@
             </div>
           </article>
 
-          <!-- PROJECT 4 -->
-          <article class="project-card" data-search="shahrul syazwan portfolio website">
-            <div class="project-visual">
-              <div class="project-icon">SS</div>
+          <!-- 4. SHAHRUL SYAZWAN -->
+          <article class="project-card"
+                   data-search="shahrul syazwan portfolio personal website">
+            <div class="project-art">
+              <div class="project-symbol">SS</div>
             </div>
-            <div class="project-content">
-              <div class="project-type">Portfolio Website</div>
+
+            <div class="project-body">
+              <div class="project-category">Portfolio Website</div>
               <h3>Shahrul Syazwan Portfolio</h3>
               <p>
-                A portfolio website project created to present a
-                personal profile and showcase digital work.
+                A personal portfolio project focused on presenting
+                an individual's profile and showcasing selected
+                digital work.
               </p>
-              <div class="project-links">
+
+              <div class="project-actions">
                 <a class="btn btn-primary"
                    href="https://norizkandar.github.io/shahrul-syazwan/"
                    target="_blank" rel="noopener noreferrer">
-                  Visit Project ↗
+                  Visit Website ↗
                 </a>
-                <a class="btn btn-secondary"
+
+                <a class="btn btn-outline"
                    href="https://github.com/norizkandar/shahrul-syazwan"
                    target="_blank" rel="noopener noreferrer">
                   Source Code
@@ -712,25 +958,30 @@
             </div>
           </article>
 
-          <!-- PROJECT 5 -->
-          <article class="project-card" data-search="smart tuisyen smart academy education learning">
-            <div class="project-visual">
-              <div class="project-icon">ST</div>
+          <!-- 5. SMART TUISYEN -->
+          <article class="project-card"
+                   data-search="smart tuisyen smart academy education online learning">
+            <div class="project-art">
+              <div class="project-symbol">ST</div>
             </div>
-            <div class="project-content">
-              <div class="project-type">Education Technology</div>
+
+            <div class="project-body">
+              <div class="project-category">Education Technology</div>
               <h3>Smart Tuisyen</h3>
               <p>
-                An online learning platform concept featuring classes,
-                lessons, homework, quizzes and student progress tools.
+                An online learning platform concept featuring
+                digital classes, lessons, homework, quizzes
+                and student progress tools.
               </p>
-              <div class="project-links">
+
+              <div class="project-actions">
                 <a class="btn btn-primary"
                    href="https://norizkandar.github.io/eonix-tech-studio/"
                    target="_blank" rel="noopener noreferrer">
-                  Visit Project ↗
+                  Visit Website ↗
                 </a>
-                <a class="btn btn-secondary"
+
+                <a class="btn btn-outline"
                    href="https://github.com/norizkandar/eonix-tech-studio"
                    target="_blank" rel="noopener noreferrer">
                   Source Code
@@ -741,183 +992,260 @@
 
         </div>
 
-        <p class="empty-state" id="emptyState">
-          No matching projects found. Try another search.
+        <p id="emptyState" class="empty-state">
+          No projects found. Try another search.
         </p>
 
-        <div class="note">
-          Some live project links may not be available until GitHub Pages
-          has been enabled and the site successfully published.
-          Use the Source Code link to access each repository.
+        <div class="project-note">
+          <strong>Project availability:</strong>
+          Website links are provided for convenience. If a live
+          website is unavailable, open its GitHub repository to
+          view the source code. Features may vary between projects.
         </div>
+
+        <div style="margin-top: 25px;">
+          <a class="btn btn-outline"
+             href="https://github.com/norizkandar?tab=repositories"
+             target="_blank" rel="noopener noreferrer">
+            Explore All GitHub Repositories ↗
+          </a>
+        </div>
+
       </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="services">
       <div class="container">
+
         <div class="section-heading">
-          <div class="label">What We Explore</div>
-          <h2>Digital Services & Creativity</h2>
-          <p>
-            Areas of interest represented by our projects.
-            Availability of any paid service must be confirmed separately.
+          <div class="section-label">02 / Capabilities</div>
+          <h2 class="section-title">
+            Driven By <span class="gradient">Technology.</span>
+          </h2>
+          <p class="section-description">
+            Areas explored through our digital projects and
+            continuous learning.
           </p>
         </div>
 
         <div class="services-grid">
-          <div class="service">
-            <div class="symbol">⌘</div>
-            <h3>Website Development</h3>
+
+          <div class="service-card">
+            <div class="service-icon">⌘</div>
+            <h3>Web Development</h3>
             <p>
-              Creating responsive websites, landing pages and
-              personal portfolio experiences.
+              Responsive websites, landing pages and digital
+              platforms designed for modern browsers.
             </p>
           </div>
 
-          <div class="service">
-            <div class="symbol">✳</div>
-            <h3>UI & Digital Design</h3>
+          <div class="service-card">
+            <div class="service-icon">◇</div>
+            <h3>UI & UX Concepts</h3>
             <p>
-              Exploring modern layouts, visual identities and
-              user-friendly digital interfaces.
+              Futuristic interfaces, clean layouts and
+              user-focused digital experiences.
             </p>
           </div>
 
-          <div class="service">
-            <div class="symbol">⟡</div>
-            <h3>Technology Projects</h3>
+          <div class="service-card">
+            <div class="service-icon">⌁</div>
+            <h3>Digital Portfolios</h3>
             <p>
-              Experimenting with web applications, educational
-              technology and new digital ideas.
+              Online profiles that present personal work,
+              projects and professional information.
             </p>
           </div>
+
+          <div class="service-card">
+            <div class="service-icon">⚡</div>
+            <h3>Web Applications</h3>
+            <p>
+              Exploring interactive features and useful
+              browser-based application concepts.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">◎</div>
+            <h3>Creative Technology</h3>
+            <p>
+              Experimenting with new ideas, emerging tools
+              and creative approaches to development.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">↗</div>
+            <h3>Continuous Learning</h3>
+            <p>
+              Improving technical skills through practical
+              projects and iterative development.
+            </p>
+          </div>
+
         </div>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about">
       <div class="container">
-        <div class="about-box">
-          <div>
-            <div class="label" style="color: var(--green);">
-              About Eonix
-            </div>
-            <h2>Ideas. Code. Innovation.</h2>
+
+        <div class="about-layout">
+          <div class="about-text">
+            <div class="section-label">03 / About Us</div>
+
+            <h2 class="section-title">
+              Small Studio.<br>
+              <span class="gradient">Big Ideas.</span>
+            </h2>
+
             <p>
               Eonix Tech Studio is an independent digital project
-              brand focused on building websites, exploring technology
-              and turning creative ideas into online experiences.
+              brand focused on websites, creative concepts and
+              technology-driven development.
             </p>
+
             <p>
-              Our portfolio reflects projects in development,
-              experiments and digital work. Features and availability
-              may vary between projects.
+              Our collection includes portfolio websites,
+              automotive concepts and education technology.
+              Each project reflects an ongoing process of
+              learning, experimentation and improvement.
             </p>
+
+            <a href="#projects" class="btn btn-primary"
+               style="margin-top: 12px;">
+              Discover Our Work ↗
+            </a>
           </div>
 
-          <div class="principles">
-            <div class="principle">
-              <strong>01 / Creativity</strong>
-              Exploring fresh ideas and original digital concepts.
+          <div class="about-points">
+            <div class="about-point">
+              <strong>01 — Innovation</strong>
+              <span>Exploring new ways to bring ideas to life.</span>
             </div>
-            <div class="principle">
-              <strong>02 / Learning</strong>
-              Developing skills through practical projects.
+
+            <div class="about-point">
+              <strong>02 — Creativity</strong>
+              <span>Combining visual design with technology.</span>
             </div>
-            <div class="principle">
-              <strong>03 / Improvement</strong>
-              Continuously refining design and functionality.
+
+            <div class="about-point">
+              <strong>03 — Progress</strong>
+              <span>Building, testing and improving over time.</span>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
+    <!-- REGISTRATION NOTICE -->
     <section id="registration">
       <div class="container">
-        <div class="registration">
+        <div class="notice">
           <h3>Business Registration Notice</h3>
           <p>
             Eonix Tech Studio is currently an unregistered business
-            name and is not registered as a company. This website
-            serves as a portfolio for digital projects and development
-            work. The name does not represent a registered legal entity.
+            name and has not been registered as a company.
+            This website presents digital projects and development
+            work under that name. Eonix Tech Studio does not
+            represent a registered company or separate legal entity.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <div class="contact-box">
-          <div class="label" style="color: var(--green);">
-            Get Connected
-          </div>
-          <h2>Let's Connect.</h2>
+          <div class="section-label">04 / Get Connected</div>
+
+          <h2 class="section-title">
+            Let's Build Something<br>
+            <span class="gradient">Extraordinary.</span>
+          </h2>
+
           <p>
-            Interested in our projects? Explore our work on GitHub
-            and follow our future development.
+            Explore our digital projects, browse the source code
+            and follow the development journey on GitHub.
           </p>
-          <div class="actions">
-            <a class="btn btn-primary"
-               href="https://github.com/norizkandar"
-               target="_blank" rel="noopener noreferrer">
-              Visit Our GitHub ↗
-            </a>
-            <a class="btn btn-secondary"
-               href="https://github.com/norizkandar?tab=repositories"
-               target="_blank" rel="noopener noreferrer">
-              All Repositories ↗
-            </a>
-          </div>
+
+          <a class="btn btn-primary"
+             href="https://github.com/norizkandar"
+             target="_blank" rel="noopener noreferrer">
+            Visit GitHub Profile ↗
+          </a>
+
+          <a class="btn btn-outline"
+             href="https://github.com/norizkandar?tab=repositories"
+             target="_blank" rel="noopener noreferrer"
+             style="margin-left: 8px;">
+            View Repositories
+          </a>
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container footer-inner">
       <div>
-        <strong style="color: var(--text);">EONIX TECH STUDIO</strong>
-        <div>Independent digital projects and creative technology.</div>
-        <div>© <span id="year"></span> Eonix Tech Studio.</div>
+        <strong style="color: white; letter-spacing: 1px;">
+          EONIX TECH STUDIO
+        </strong>
+        <p>Independent digital projects. Future-focused ideas.</p>
+        <p>© <span id="year"></span> Eonix Tech Studio.</p>
       </div>
 
       <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
+        <a href="#about">About</a>
         <a href="#registration">Registration Notice</a>
         <a href="https://github.com/norizkandar"
-           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+           target="_blank" rel="noopener noreferrer">
+          GitHub ↗
+        </a>
       </div>
     </div>
   </footer>
 
+  <!-- INTERACTIVE SEARCH -->
   <script>
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    const searchInput = document.getElementById("projectSearch");
-    const projectCards = document.querySelectorAll(".project-card");
-    const emptyState = document.getElementById("emptyState");
+    const search = document.getElementById("projectSearch");
+    const cards = document.querySelectorAll(".project-card");
+    const count = document.getElementById("visibleCount");
+    const empty = document.getElementById("emptyState");
 
-    searchInput.addEventListener("input", function () {
-      const query = this.value.trim().toLowerCase();
-      let visibleCount = 0;
+    search.addEventListener("input", function () {
+      const query = this.value.toLowerCase().trim();
+      let visible = 0;
 
-      projectCards.forEach(function (card) {
-        const searchableText =
-          (card.innerText + " " + card.dataset.search).toLowerCase();
+      cards.forEach(function (card) {
+        const text = (
+          card.innerText + " " + card.dataset.search
+        ).toLowerCase();
 
-        const matches = searchableText.includes(query);
-        card.style.display = matches ? "" : "none";
+        const match = text.includes(query);
 
-        if (matches) visibleCount++;
+        card.style.display = match ? "" : "none";
+
+        if (match) visible++;
       });
 
-      emptyState.style.display =
-        visibleCount === 0 ? "block" : "none";
+      count.textContent = visible;
+      empty.style.display = visible === 0 ? "block" : "none";
     });
   </script>
+
 </body>
 </html>
